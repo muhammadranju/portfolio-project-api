@@ -1,14 +1,11 @@
-const path = require("path");
 const express = require("express");
+const ejs = require("ejs");
 const middleware = require("../middleware/middleware");
 const router = require("../routes");
 const app = express();
 
-// Set 'views' directory for any views being rendered
-// app.set("views", path.join(__dirname, "views"));
-
-app.engine("ejs", require("ejs").renderFile);
-app.set("view engine", "ejs");
+app.engine("ejs", ejs.renderFile);
+app.set("view engine", ejs);
 
 app.use(express.static("public"));
 
