@@ -37,6 +37,13 @@ const projectSchema = new Schema(
   { timestamps: true }
 );
 
+projectSchema.pre("save", function (next) {
+  if (this.isModified("category")) {
+    this.category = this.category.split(" ").join("-").toLocaleLowerCase();
+  }
+  next();
+});
+
 const Project = model("Project", projectSchema);
 
 module.exports = Project;
