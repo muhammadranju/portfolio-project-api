@@ -1,0 +1,19 @@
+.margin-top {
+  margin-top: 100px;
+}
+.p-10 {
+  padding: 35px;
+}
+
+.m-100 {
+  margin-top: 200px;
+}
+
+.mar-xy {
+  margin: 10px;
+}
+.bg-dark-2 {
+  background-color: rgba(70, 70, 70, 0.158);
+  position: fixed;
+  width: 100%;
+}

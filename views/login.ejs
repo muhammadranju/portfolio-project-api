@@ -1,0 +1,59 @@
+<%- include('./partials/header.ejs') %>
+
+<!-- header -->
+<%- include('./partials/navbar.ejs') %>
+
+<main>
+  <section class="my-lg-10 my-10 margin-top">
+    <div class="container m-100">
+      <!-- row -->
+      <div class="row justify-content-center align-items-center my-12">
+        <!-- col -->
+        <div class="col-12 col-md-6 col-lg-5 order-lg-2 order-1 card p-10">
+          <div class="mb-lg-2">
+            <h1 class="mb-1 h2 fw-bold">Sign in your account</h1>
+          </div>
+
+          <form accept="/login" class="card-body" method="POST">
+            <div class="row g-3">
+              <!-- row -->
+
+              <div class="col-12">
+                <!-- input -->
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="inputEmail4"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="col-12">
+                <!-- input -->
+                <div class="password-field position-relative">
+                  <input
+                    type="password"
+                    id="fakePassword"
+                    placeholder="Enter Password"
+                    class="form-control"
+                    name="password"
+                  />
+                  <span
+                    ><i id="passwordToggler" class="bi bi-eye-slash"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- btn -->
+              <div class="col-12 d-grid">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+              <!-- link -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('./partials/footer.ejs') %>
