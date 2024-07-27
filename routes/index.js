@@ -14,7 +14,7 @@ const router = require("express").Router();
 
 router.route("/").get(authMiddleware, homeController);
 
-router.route("/login").get(isLoginMiddleware, loginGetController);
+router.route("/login").get(loginGetController);
 router.route("/login").post(loginPostController);
 
 router.route("/signup").post(signupPostController);
