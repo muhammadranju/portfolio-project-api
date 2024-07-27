@@ -4,24 +4,26 @@
 <%- include('./partials/navbar.ejs') %>
 
 <main class="container margin-top">
-  <div class="d-flex">
-    <% for(project of projects) {%>
-    <div class="card mar-xy" style="width: 18rem">
-      <img src="<%=project.image %>" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <small>#<%=project.category %></small>
-        <h6 class="card-text h6"><%=project.title.slice(0,30)%>...</h6>
-        <p><%=project.details.slice(0,50)%>...%></p>
-        <% if(project.liveLink){ %>
-        <a href="<%=project.liveLink %>" target="_blank"
-          ><button class="btn btn-sm btn-dark">Live Demo</button></a
-        ><% } %>
-        <a href="<%=project.sourceCode %>" target="_blank">
-          <button class="btn btn-sm btn-primary">Source URL</button></a
-        >
+  <div class="d-flex row-lg-12">
+    <div class="row justify-content-center g-2">
+      <% for(project of projects) {%>
+      <div class="card mar-xy" style="width: 18rem">
+        <img src="<%=project.image %>" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <small>#<%=project.category %></small>
+          <h6 class="card-text h6"><%=project.title.slice(0,30)%>...</h6>
+          <p><%=project.details.slice(0,50)%>...%></p>
+          <% if(project.liveLink){ %>
+          <a href="<%=project.liveLink %>" target="_blank"
+            ><button class="btn btn-sm btn-dark">Live Demo</button></a
+          ><% } %>
+          <a href="<%=project.sourceCode %>" target="_blank">
+            <button class="btn btn-sm btn-primary">Source URL</button></a
+          >
+        </div>
       </div>
+      <% } %>
     </div>
-    <% } %>
   </div>
 </main>
 
