@@ -5,7 +5,7 @@ const loginGetController = async (req, res, next) => {
   try {
     return res
       .status(200)
-      .render("login", { title: "Login Page", isAuth: true });
+      .render("login.ejs", { title: "Login Page", isAuth: true });
   } catch (error) {
     next(error);
   }
