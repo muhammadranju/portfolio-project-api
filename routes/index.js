@@ -7,6 +7,7 @@ const homeController = require("../controller/home/home");
 const createProjectController = require("../controller/project/create");
 const findProjectController = require("../controller/project/find");
 const findAllProjectController = require("../controller/project/findAll");
+const findSingleProjectController = require("../controller/project/findSingle");
 const authMiddleware = require("../middleware/authMiddleware");
 const isLoginMiddleware = require("../middleware/isLogin.middleware");
 
@@ -18,6 +19,8 @@ router.route("/login").get(isLoginMiddleware, loginGetController);
 router.route("/login").post(loginPostController);
 
 router.route("/signup").post(signupPostController);
+
+router.route("/v1/api/project/:productId").get(findSingleProjectController);
 
 router.route("/project").get(authMiddleware, findProjectController);
 router.route("/project").post(authMiddleware, createProjectController);
