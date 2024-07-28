@@ -14,7 +14,7 @@ const isLoginMiddleware = (req, res, next) => {
     // Handle various error cases
     if (error.message === "jwt must be provided") {
       // If token is not provided, continue to the next middleware
-      res.clearCookie("auth");
+      // res.clearCookie("auth");
       return next();
     }
 
@@ -30,18 +30,21 @@ const isLoginMiddleware = (req, res, next) => {
     if (error.message.includes("invalid signature")) {
       // If token is invalid or malformed, return a 403 Forbidden response
       res.clearCookie("auth");
-      throw Error(403, "you don't have access to change it.", error.message);
+      // throw Error(403, "you don't have access to change it.", error.message);
+      return next();
     }
 
     if (error.message.includes("Unexpected", "token", "end", "input")) {
       // If token is invalid or malformed, return a 403 Forbidden response
-      res.clearCookie("auth");
-      throw Error(403, "you don't have access to change it.", error.message);
+      // res.clearCookie("auth");
+      return next();
+      // throw Error(403, "you don't have access to change it.", error.message);
     }
 
     if (error.message.includes("jwt malformed")) {
       // If token is invalid or malformed, return a 403 Forbidden response
-      res.clearCookie("auth");
+      // res.clearCookie("auth");
+      return next();
       throw Error(403, "you don't have access to change it.", error.message);
     }
 
@@ -53,7 +56,6 @@ const isLoginMiddleware = (req, res, next) => {
     }
 
     // If none of the above conditions are met, pass the error to the error handling middleware
-    res.clearCookie("auth");
     return next(error);
   }
 };
