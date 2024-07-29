@@ -13,8 +13,11 @@ const findSingleProjectController = async (req, res, next) => {
     }
 
     const project = await Project.findById({ _id: productId });
-
-    return res.status(200).json(project);
+    return res.status(200).render("update.ejs", {
+      title: "Update Project Page",
+      isAuth: req.isAuth,
+      project,
+    });
   } catch (error) {
     next(error);
   }

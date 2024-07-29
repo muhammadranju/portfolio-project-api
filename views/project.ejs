@@ -8,7 +8,9 @@
     <div class="row justify-content-center g-2">
       <% for(project of projects) {%>
       <div class="card mar-xy" style="width: 18rem">
-        <img src="<%=project.image %>" class="card-img-top" alt="..." />
+        <a href="/project/<%=project._id %>">
+          <img src="<%=project.image %>" class="card-img-top" alt="..." />
+        </a>
         <div class="card-body">
           <small>#<%=project.category %></small>
           <h6 class="card-text h6"><%=project.title.slice(0,30)%>...</h6>
