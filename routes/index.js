@@ -14,7 +14,7 @@ const isLoginMiddleware = require("../middleware/isLogin.middleware");
 
 const router = require("express").Router();
 
-router.route("/").get(authMiddleware, homeController);
+router.route("/").get(homeController);
 
 router.route("/login").get(isLoginMiddleware, loginGetController);
 router.route("/login").post(loginPostController);
@@ -27,9 +27,7 @@ router
 
 router.route("/update-project").post(authMiddleware, updateProjectController);
 
-router.route("/project").get(authMiddleware, findProjectController);
-router.route("/project").post(authMiddleware, createProjectController);
-
+router.route("/project").get(findProjectController);
 router.route("/project").post(authMiddleware, createProjectController);
 
 router.route("/v1/api/project").get(findAllProjectController);

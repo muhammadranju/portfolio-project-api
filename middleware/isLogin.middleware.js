@@ -7,7 +7,7 @@ const isLoginMiddleware = (req, res, next) => {
 
     if (user?.isAuth) {
       // If user is logged in, return a 403 Forbidden response
-      return res.redirect("/");
+      // return res.redirect("/");
     }
     return next();
   } catch (error) {
