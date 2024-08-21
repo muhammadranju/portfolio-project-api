@@ -2,7 +2,7 @@ const User = require("../../models/auth.model");
 const bcrypt = require("bcryptjs");
 const signupPostController = async (req, res, next) => {
   try {
-    const { email, password, name } = req.body;
+    const { username, password, name } = req.body;
 
     if (!name) {
       throw Error("Your not a valid parson");
@@ -14,7 +14,7 @@ const signupPostController = async (req, res, next) => {
     const hash = await bcrypt.hash(password, salt);
 
     const user = new User({
-      email,
+      username,
       password: hash,
     });
 
