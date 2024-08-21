@@ -13,13 +13,21 @@
         </a>
         <div class="card-body">
           <small>#<%=project.category %></small>
-          <h6 class="card-text h6"><%=project.title.slice(0,30)%>...</h6>
-          <p><%=project.details.slice(0,50)%>...%></p>
+          <h6 class="card-text h6" title="<%=project.title %>">
+            <%=project.title.length > 30 ? project.title.substring(0,30)+"..." :
+            project.title%>
+          </h6>
+          <!-- project.title.substring(0,30) -->
+          <p title="<%=project.details %>">
+            <%=project.details.length > 50 ?
+            project.details.substring(0,50)+"...":project.details%>
+            <!-- project.details.substring(0,50) -->
+          </p>
           <% if(project.liveLink){ %>
           <a href="<%=project.liveLink %>" target="_blank"
             ><button class="btn btn-sm btn-dark">Live Demo</button></a
           ><% } %>
-          <a href="<%=project.sourceCode %>" target="_blank">
+          <a href="<%=project.sourceCode%>" target="_blank">
             <button class="btn btn-sm btn-primary">Source URL</button></a
           >
         </div>
