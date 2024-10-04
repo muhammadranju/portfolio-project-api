@@ -1,4 +1,7 @@
 const {
+  findAllProjectControllerById,
+} = require("../controller/api/findSingle");
+const {
   loginGetController,
   loginPostController,
 } = require("../controller/auth/login");
@@ -33,4 +36,5 @@ router.route("/project").post(authMiddleware, createProjectController);
 router.route("/project").post(authMiddleware, createProjectController);
 
 router.route("/v1/api/project").get(findAllProjectController);
+router.route("/v1/api/project/:id").get(findAllProjectControllerById);
 module.exports = router;
