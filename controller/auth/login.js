@@ -13,18 +13,18 @@ const loginGetController = async (req, res, next) => {
 
 const loginPostController = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
 
     if (!user) {
-      return res.status(400).json({ massage: "Invalid email or password" });
+      return res.status(400).json({ massage: "Invalid username or password" });
     }
 
     const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (!isPasswordMatch) {
-      return res.status(400).json({ massage: "Invalid email or password" });
+      return res.status(400).json({ massage: "Invalid username or password" });
     }
 
     const payload = {
