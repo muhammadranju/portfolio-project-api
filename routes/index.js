@@ -1,6 +1,9 @@
+const { contactAPIPostController } = require("../controller/api/contact");
+const createProjectAPIController = require("../controller/api/create");
 const {
   findAllProjectControllerById,
 } = require("../controller/api/findSingle");
+const { loginAPIPostController } = require("../controller/api/login");
 const {
   loginGetController,
   loginPostController,
@@ -35,6 +38,13 @@ router.route("/project").post(authMiddleware, createProjectController);
 
 router.route("/project").post(authMiddleware, createProjectController);
 
+// api routes
 router.route("/v1/api/project").get(findAllProjectController);
 router.route("/v1/api/project/:id").get(findAllProjectControllerById);
+router.route("/v1/api/contact").post(contactAPIPostController);
+
+// login with api routes
+router.route("/v1/api/login").post(loginAPIPostController);
+router.route("/v1/api/project").post(createProjectAPIController);
+
 module.exports = router;
