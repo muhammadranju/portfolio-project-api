@@ -1,0 +1,164 @@
+ <!-- ====== ApexCharts JS ========== -->
+ <script src="src/assets/js/apexcharts.min.js"></script>
+ <script src="src/assets/js/jsvectormap.min.js"></script>
+ <script src="src/assets/maps/world-merc.js"></script>
+ <script>
+   // ===== chartOne
+   const chartOneOptions = {
+     series: [
+       {
+         name: "Product One",
+         data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 45],
+       },
+
+       {
+         name: "Product Two",
+         data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51],
+       },
+     ],
+     legend: {
+       show: false,
+       position: "top",
+       horizontalAlign: "left",
+     },
+     colors: ["#3056D3", "#13C296"],
+     chart: {
+       height: 380,
+       type: "line",
+       dropShadow: {
+         enabled: true,
+         color: "#623CEA14",
+         top: 10,
+         blur: 4,
+         left: 0,
+         opacity: 0.1,
+       },
+
+       toolbar: {
+         show: false,
+       },
+     },
+     responsive: [
+       {
+         breakpoint: 1024,
+         options: {
+           chart: {
+             height: 280,
+           },
+         },
+       },
+       {
+         breakpoint: 1366,
+         options: {
+           chart: {
+             height: 320,
+           },
+         },
+       },
+     ],
+     stroke: {
+       width: [4, 4],
+       curve: "smooth",
+     },
+
+     markers: {
+       size: 0,
+     },
+     labels: {
+       show: false,
+       position: "top",
+     },
+     grid: {
+       xaxis: {
+         lines: {
+           show: true,
+         },
+       },
+       yaxis: {
+         lines: {
+           show: false,
+         },
+       },
+     },
+     xaxis: {
+       type: "category",
+       categories: [
+         "Sep",
+         "Oct",
+         "Nov",
+         "Dec",
+         "Jan",
+         "Feb",
+         "Mar",
+         "Apr",
+         "May",
+         "Jun",
+         "Jul",
+         "Aug",
+       ],
+       axisBorder: {
+         show: false,
+       },
+       axisTicks: {
+         show: false,
+       },
+     },
+     yaxis: {
+       title: {
+         style: {
+           fontSize: "0px",
+         },
+       },
+       min: 0,
+       max: 100,
+
+       labels: {
+         style: {
+           colors: ["white"],
+         },
+       },
+     },
+   };
+
+   const chartOne = new ApexCharts(
+     document.querySelector("#chartOne"),
+     chartOneOptions
+   );
+   chartOne.render();
+
+   //  Map's JS
+   const markers = [
+     { name: "Russia", coords: [61, 105], sales: 580 },
+     { name: "Geenland", coords: [72, -42], sales: 600 },
+     { name: "Canada", coords: [56.1304, -106.3468], sales: 820 },
+     { name: "Palestine", coords: [31.5, 34.8], sales: 350 },
+     { name: "Brazil", coords: [-14.235, -51.9253], sales: 490 },
+   ];
+
+   const jvm = new jsVectorMap({
+     map: "world_merc",
+     selector: "#mapOne",
+     zoomButtons: true,
+
+     regionStyle: {
+       initial: {
+         fill: "#C8D0D8",
+       },
+     },
+     markersSelectable: true,
+     markers: markers,
+     markerStyle: {
+       initial: {
+         r: 7,
+         fill: "#3056D3",
+         fillOpacity: 1,
+         stroke: "#FFF",
+         strokeWidth: 5,
+         strokeOpacity: 1,
+       },
+     },
+   });
+ </script>
+ <script defer src="bundle.js"></script>
+</body>
+</html>

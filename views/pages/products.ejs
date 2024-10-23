@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+
+<!-- left side bar -->
+<%- include('../dash/sidebar.ejs') %>
+<!-- left side bar -->
+
+<main class="w-full xl:pl-[300px]">
+  <!-- ====== Horizontal Menu Section Start -->
+  <%- include('../dash/header.ejs') %>
+  <!-- ====== Horizontal Menu Section End -->
+
+  <!-- page content start -->
+  <div class="p-[30px]">
+    <h1 class="text-3xl font-bold mb-4">Projects: <%= projects.length %></h1>
+    <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">
+      <% projects.forEach((project) => { %>
+      <div class="card bg-base-100 shadow-xl">
+        <figure>
+          <img
+            src="<%= project.image %>"
+            class="w-full lg:h-52 object-cover"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="text-lg font-bold">
+            <%= project.title.length>30?project.title.substring(0,
+            50).concat("..."):project.title %>
+          </h2>
+          <p>
+            <%= project.details.length>100?project.details.substring(0,
+            100).concat("...") :project.details%>
+          </p>
+          <div class="flex justify-around">
+            <a href="<%= project.sourceCode %>" target="_blank">
+              <button class="btn">Source Code</button>
+            </a>
+            <% if(project.liveLink){ %>
+            <a href="<%= project.liveLink %>" target="_blank">
+              <button class="btn btn-primary">Live Demo</button> </a
+            ><% } %>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+  <!-- page content end -->
+</main>
+
+<%- include('../dash/footer-links.ejs') %>
