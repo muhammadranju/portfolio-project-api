@@ -10,11 +10,11 @@
   <!-- ====== Horizontal Menu Section End -->
 
   <!-- page content start -->
-  <div class="p-[30px]">
+  <div class="p-[30px] bg-slate-900 text-white">
     <h1 class="text-3xl font-bold mb-4">Projects: <%= projects.length %></h1>
     <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">
       <% projects.forEach((project) => { %>
-      <div class="card bg-base-100 shadow-xl">
+      <div class="card bg-slate-800 text-slate-100 rounded-xl shadow-xl">
         <figure>
           <img
             src="<%= project.image %>"

@@ -12,6 +12,7 @@ const updateProjectController = async (req, res, next) => {
       sourceCode,
       image,
       avatar,
+      tags,
     } = req.body;
 
     if (!mongoose.isValidObjectId(userId)) {
@@ -21,8 +22,10 @@ const updateProjectController = async (req, res, next) => {
       });
     }
 
-    const project = await Project.findById({ _id: userId });
+    const tag = tags?.toLowerCase()?.split(",");
 
+    const project = await Project.findById({ _id: userId });
+    console.log(project);
     project.title = title || project.title;
     project.details = details || project.details;
     project.category = category || project.category;
@@ -31,6 +34,7 @@ const updateProjectController = async (req, res, next) => {
     project.sourceCode = sourceCode || project.sourceCode;
     project.image = image || project.image;
     project.avatar = avatar || project.avatar;
+    project.tags = tag || project.tags;
 
     await project.save();
 

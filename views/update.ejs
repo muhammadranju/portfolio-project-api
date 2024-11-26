@@ -136,6 +136,21 @@
             />
           </div>
 
+          <div class="col-12">
+            <label for="title">
+              Your Tags<strong class="text-danger">*</strong>
+            </label>
+            <!-- input --><input
+              type="text"
+              class="form-control"
+              placeholder="Your tags ex: tag1, tag2, tag3"
+              name="tags"
+              value="<%=project.tags %>"
+              title="<%=project.tags %>"
+              required
+            />
+          </div>
+
           <!-- input --><input
             type="text"
             hidden

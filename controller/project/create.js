@@ -12,12 +12,24 @@ const createProjectController = async (req, res, next) => {
       sourceCode,
       image,
       avatar,
+      tags,
     } = req.body;
-    if ((!title, !details, !category, !author, !sourceCode, !image, !avatar)) {
+    if (
+      (!title,
+      !details,
+      !category,
+      !author,
+      !sourceCode,
+      !image,
+      !avatar,
+      !tags)
+    ) {
       return res.send(
         errorMessageTemplates("Please fill all required fields.")
       );
     }
+
+    const tag = tags?.toLowerCase()?.split(",");
 
     const project = new Project({
       title,
@@ -28,6 +40,7 @@ const createProjectController = async (req, res, next) => {
       sourceCode,
       image,
       avatar,
+      tag,
     });
     console.log(project);
     await project.save();

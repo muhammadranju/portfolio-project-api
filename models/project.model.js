@@ -29,15 +29,15 @@ const projectSchema = new Schema(
       type: String,
       required: true,
     },
+    avatar: {
+      type: String,
+      required: true,
+    },
     tags: [
       {
         type: String,
       },
     ],
-    avatar: {
-      type: String,
-      required: true,
-    },
   },
   { timestamps: true }
 );
