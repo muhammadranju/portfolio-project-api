@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const slugify = require("slugify");
 
 const projectSchema = new Schema(
   {
@@ -33,6 +34,9 @@ const projectSchema = new Schema(
       type: String,
       required: true,
     },
+    slug: {
+      type: String,
+    },
     tags: [
       {
         type: String,
@@ -45,6 +49,13 @@ const projectSchema = new Schema(
 projectSchema.pre("save", function (next) {
   if (this.isModified("category")) {
     this.category = this.category.split(" ").join("-").toLocaleLowerCase();
+  }
+  next();
+});
+
+projectSchema.pre("save", function (next) {
+  if (this.isModified("title")) {
+    this.slug = slugify(this.title);
   }
   next();
 });
