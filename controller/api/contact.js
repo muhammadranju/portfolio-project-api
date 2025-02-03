@@ -29,6 +29,21 @@ const contactAPIPostController = async (req, res, next) => {
   }
 };
 
+const contactAPIGetController = async (req, res, next) => {
+  try {
+    const contacts = await Contact.find({}).sort({ createdAt: -1 });
+    return res.status(200).json({
+      success: true,
+      status: 200,
+      massage: "Contacts fetched successfully",
+      contacts,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
+  contactAPIGetController,
   contactAPIPostController,
 };

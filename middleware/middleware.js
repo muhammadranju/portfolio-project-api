@@ -7,7 +7,7 @@ const compression = require("compression");
 // CORS options to allow requests from frontend running on port 5500
 const corsOptions = {
   // origin: process.env.BASE_URL, // Allow only requests from this origin
-  origin: "*", // Allow only requests from this origin
+  origin: ["http://localhost:3000", "https://www.mdranju.xyz"], // Allow only requests from this origin
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allow only these methods
   credential: true,
   allowedHeaders: ["Content-Type", "Authorization"], // Allow only these headers

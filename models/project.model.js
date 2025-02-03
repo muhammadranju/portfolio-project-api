@@ -11,6 +11,9 @@ const projectSchema = new Schema(
       type: String,
       required: true,
     },
+    longDetails: {
+      type: String,
+    },
     category: {
       type: String,
       required: true,
@@ -26,6 +29,10 @@ const projectSchema = new Schema(
       type: String,
       required: true,
     },
+    backendSourceCode: {
+      type: String,
+      // required: true,
+    },
     image: {
       type: String,
       required: true,
@@ -36,6 +43,11 @@ const projectSchema = new Schema(
     },
     slug: {
       type: String,
+    },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "published",
     },
     tags: [
       {

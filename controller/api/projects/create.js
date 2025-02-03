@@ -5,12 +5,14 @@ const createProjectController = async (req, res, next) => {
       title,
       details,
       category,
-      author,
       liveLink,
       sourceCode,
       image,
+      author,
       avatar,
       tags,
+      backendSourceCode,
+      longDetails,
     } = req.body;
 
     // Validate required fields
@@ -44,9 +46,12 @@ const createProjectController = async (req, res, next) => {
       sourceCode,
       image,
       avatar,
-      tag,
+      tags: tag,
+      backendSourceCode,
+      longDetails,
     });
-    await project.save();
+    // await project.save();
+    console.log(project);
 
     // Send success response
     res.status(201).json({
