@@ -4,9 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 
-// CORS options to allow requests from frontend running on port 5500
 const corsOptions = {
-  // origin: process.env.BASE_URL, // Allow only requests from this origin
   origin: "*", // Allow only requests from this origin
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allow only these methods
   credential: true,

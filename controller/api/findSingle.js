@@ -20,17 +20,15 @@ const findAllProjectControllerById = async (req, res, next) => {
 
     const project = await Project.findOne({ _id: id });
 
-    return res
-      .status(200)
-      .json({
-        status: 200,
-        success: true,
-        message: "Project found successfully!",
-        project,
-      });
+    return res.status(200).json({
+      status: 200,
+      success: true,
+      message: "Project found successfully!",
+      project,
+    });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { findAllProjectControllerById };
+module.exports = { findAllProjectControllerById, findProjectBySearchQuery };
