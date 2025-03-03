@@ -50,7 +50,7 @@ const createProjectController = async (req, res, next) => {
       backendSourceCode,
       longDetails,
     });
-    // await project.save();
+    await project.save();
     console.log(project);
 
     // Send success response
