@@ -14,6 +14,7 @@ const updateProjectController = async (req, res, next) => {
       image,
       avatar,
       tags,
+      longDetails,
     } = req.body;
 
     console.log(tags);
@@ -29,6 +30,7 @@ const updateProjectController = async (req, res, next) => {
     const project = await Project.findById({ _id: productId });
     project.title = title || project.title;
     project.details = details || project.details;
+    project.longDetails = longDetails || project.longDetails;
     project.category = category || project.category;
     project.author = author || project.author;
     project.backendSourceCode = backendSourceCode || project.backendSourceCode;
